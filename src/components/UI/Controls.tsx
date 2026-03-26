@@ -1,5 +1,5 @@
 import React from 'react';
-import { Palette, Download, Moon, Sun } from 'lucide-react';
+import { Palette, Download, Moon, Sun, ArrowRight } from 'lucide-react';
 import { useResume } from '../../context/ResumeContext';
 import { exportToPDF } from '../../utils/export';
 import type { TemplateType } from '../../types/resume';

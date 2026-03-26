@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+@theme {
+  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
+}
+
 @layer base {
   body {
     @apply bg-gray-50 text-gray-900 transition-colors duration-200;
@@ -31,5 +46,52 @@
 @media print {
   .no-print {
     display: none !important;
+  }
+}
+
+/* Glassmorphism & Background Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+}
+
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.3;
+    transform: scale(1.1);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
+.glass-card {
+  @apply bg-white/70 dark:bg-gray-900/70 backdrop-blur-2xl border border-white/20 dark:border-gray-800/50 shadow-glass;
+}
+
+.glass-input {
+  @apply bg-white/50 dark:bg-gray-800/20 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/30 rounded-2xl outline-none transition-all duration-300;
+
+  &:focus {
+    @apply ring-4 ring-primary-500/10 border-primary-500/50;
   }
 }
